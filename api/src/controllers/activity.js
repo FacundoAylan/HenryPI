@@ -1,25 +1,50 @@
-const { Country, Activity } = require('../db');
+const { Country, Activity } = require("../db");
 
-const Actividad = async (req,res) => {
+const newAct= async (req, res) => {
+  const { name, difficulty, duration, season, countryID } = req.body;
 
-    const { name, difficulty, duration, season } =req.body;
+  const valdidateact = await Activity.findOne({
+    where: {
+      name: name,
+    },
+  });
 
-    const actividad = await Activity.findOne({
-        where: {
-            name: name
-        }
+  if (!valdidateact) {
+    const addAct = await Activity.create({
+      name: name,
+      difficulty: difficulty,
+      duration: duration,
+      season: season,
+    });
+    const countrymatch = await Country.findAll({
+      where: {
+        name: countryID,
+      },
     });
 
-    if (!actividad) {
+    const resact = await addAct.addCountries(countrymatch);
 
-        const newActivity = await Activity.create({ name, difficulty, duration, season });
-        return res.json(newActivity);
-         
-    }else{
-        return res.json(actividad)
-    }
+    return res.send(resact);
+  }
+
+  const countrymatch = await Country.findAll({
+    where: {
+      name: countryID,
+    },
+  });
+  // console.log(addAct)
+  // console.log(countrymatch)
+
+  const resact = await valdidateact.addCountries(countrymatch);
+
+  res.send(resact);
 }
 
-module.exports = {
-    Actividad
+const getActivities = async (req,res) => {
+  const get = await Activity.findAll()
+  res.send(get)
+}
+module.exports={
+  newAct,
+  getActivities
 }

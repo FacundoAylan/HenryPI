@@ -1,0 +1,37 @@
+ .ConteinerSearch{
+    margin-top: 3%;
+    display: inline-grid;
+    grid-template-columns: 45% [x1] 45% [x2];
+    grid-template-rows: 40px [y1] 35px [y2];
+    justify-items: center;
+    justify-content: center;
+}
+.input{
+    position: absolute;
+    height: 30px;
+    width: 35%;
+    box-sizing: border-box;
+    border-radius: 12px;
+    grid-column: x1/x2;
+}
+.button{
+    position: absolute;
+    margin-left:33%;
+    background-image: url("../../img/search.png");
+    background-position: center top;
+    background-size: 80% auto;
+    height: 30px;
+    width: 38px;
+    border-radius: 12px;
+}
+.activity{
+    grid-row: y1;
+    border-radius: 12px;
+    margin-left: 60%;
+    
+}
+.reset{
+    grid-row: y1;
+    border-radius: 12px;
+    margin-right: 60%;
+}

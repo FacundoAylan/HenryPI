@@ -1,0 +1,36 @@
+.loanding{ 
+    background-image: url('../../img/country.jpg');
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+}
+.mensaje{
+    width: 300px;
+    height: 80px;
+    margin-top: 10%;
+    margin-left: center;
+    text-align: center;
+    font-family: Titillium Web;
+    font-weight: bold;
+    font-size: xx-large;
+    border-radius: 40px;
+}
+.inicio{
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    border-radius: 1000px;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,0.014851485148514865) 100%);
+}
+
+.inicio:hover{
+    box-shadow: inset 0 0 30px rgb(95, 121, 235);
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(7,65,158,1) 0%, rgba(8,242,133,1) 0%, rgba(9,132,231,1) 33%, rgba(0,255,21,1) 100%);
+    cursor: pointer;
+}

@@ -1,4 +1,4 @@
-const { Op } = require('sequelize');
+//const { Op } = require('sequelize');
 const { Country, Activity } =require('../db');
 
 const getCountry = async (req, res) =>{
@@ -18,7 +18,13 @@ const getCountry = async (req, res) =>{
                 where: {
                     name: name
                 },
-                include: Activity
+                include: {
+                    model: Activity,
+                    attributes: ['name', 'difficulty', 'duration', 'season'],
+                    through: {
+                        attributes: []
+                    }
+                },
             });
             if (country.length > 0){
 
@@ -46,7 +52,13 @@ const getCountryId = async (req, res) =>{
             where: {
               id: id,
             },
-            include: Activity,
+            include: {
+                model: Activity,
+                attributes: ['name', 'difficulty', 'duration', 'season'],
+                through: {
+                    attributes: []
+                }
+            },
           });
       
         res.json(country);

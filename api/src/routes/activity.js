@@ -1,9 +1,11 @@
-const { Router } = require('express');
-const { Actividad } = require('../controllers/activity.js')
 
+const { Router } = require('express');
+const { newAct } = require('../controllers/activity')
+const { getActivities } = require('../controllers/activity')
 const router= Router();
 
-router.get("/", Actividad)  
+router.post('/', newAct )  
+router.get('/',getActivities)
 
 
 module.exports = router;

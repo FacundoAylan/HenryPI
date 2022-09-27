@@ -28,7 +28,7 @@ async function Load(req, res) {
       await Country.findOrCreate({
         where:{
           id: e.id,
-          name: e.name,
+          name: e.name.toUpperCase(),
           imagen: e.imagen,
           continente: e.continente,
           capital: e.capital,

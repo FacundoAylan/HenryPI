@@ -1,0 +1,21 @@
+.homePage{
+    background-image: url( '/home/facundo/Escritorio/henryPI/PI-Countries-main/client/src/img/country.jpg');
+    height: 100vh;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+}
+.country{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    grid-template-rows: repeat(2, 200px);
+    column-gap: 10px;
+    row-gap: 15px;
+    width: 98%;
+    height: auto;
+    margin-left: 2%;
+    margin-top: 4%;
+}
+.paginado{
+    margin-left: %;
+}

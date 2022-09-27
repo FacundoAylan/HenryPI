@@ -1,0 +1,48 @@
+.barra1{
+    height: 100px;
+    background-color: rgba(31, 61, 233, 0.774);
+    display: grid;
+    grid-template-columns: [titulo] 20%  [search] 50% [filtro] 30%;
+}
+.orden{
+    display: inline-grid;
+    grid-template-columns: [x0] 15% [x1] 23% [x2] 29% [x3] 25%;
+    grid-template-rows: [y0] 40px [y1] 20px ;
+    justify-items: center;
+    justify-content: start;
+    column-gap: 5px;
+}
+
+.sort{
+    grid-column:x0 /x4;
+    grid-row: y0;
+    height: 30px;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.filtro1{
+    grid-column:x0;
+    grid-row: y1;
+    width: 97%;
+}
+.filtro2{
+    grid-column:x1;
+    grid-row: y1;
+    width: 97%;
+}
+.filtro3{
+    grid-column:x2;
+    grid-row: y1;
+    width: 97%;
+}
+.filtro4{
+    grid-column:x3;
+    grid-row: y1;
+    width: 97%;
+}
+.search{
+    grid-column: titulo/search;
+    height: 100%;
+    width: 100%;
+}
