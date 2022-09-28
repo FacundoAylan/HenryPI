@@ -84,7 +84,6 @@ export const rootReducer = (state = initialState, action) =>{
                 countries: orderCountriesByPopulation
             }
         case ADD_ACTIVITY:
-            console.log(action.payload)
             return{
                 ...state,
                 activities: action.payload
@@ -96,7 +95,7 @@ export const rootReducer = (state = initialState, action) =>{
         }
                 
         case ORDER_BY_ACTIVITY:
-            const filter = action.payload !== "Activity" ? state.countries.filter((c)=>{ return c.activities.some((a)=> a.name === action.payload)})
+            const filter = action.payload !== "Activity" ? state.allCountries.filter((c)=>{ return c.activities.some((a)=> a.name === action.payload)})
             : state.allCountries;
             return{
                 ...state,

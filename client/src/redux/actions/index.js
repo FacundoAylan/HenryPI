@@ -14,7 +14,7 @@ export const DETAIL = 'DETAIL'
 export const getCountries = () =>{
     return async (dispatch) =>{
         try{
-            const json = await axios.get('http://localhost:3005/country');
+            const json = await axios.get('http://localhost:3006/country');
             dispatch({
                 type: GET_COUNTRIES,
                 payload: json.data
@@ -28,7 +28,7 @@ export const getCountries = () =>{
 export const getCountriesName = (name) =>{
     return async (dispatch) => {
         try {
-            let json = await axios.get(`http://localhost:3005/country?name=${name}`);
+            let json = await axios.get(`http://localhost:3006/country?name=${name}`);
             dispatch({
                 type: 'GET_COUNTRIES_NAME',
                 payload: json.data
@@ -41,7 +41,7 @@ export const getCountriesName = (name) =>{
 export const searchCountries= (search) => {
     return async (dispatch) => {
         try {
-            var json = await axios.get(`http://localhost:3005/countries?name=${search}`)
+            var json = await axios.get(`http://localhost:3006/countries?name=${search}`)
             return dispatch({
                 type: 'SEARCH_COUNTRIES',
                 payload: json.data
@@ -79,7 +79,7 @@ export const filterCountriesContinent = (payload)=>{
 export const addActivity = (payload) =>{
     return async (dispatch) => {
         try{
-            return await axios.post('http://localhost:3005/activity',payload)
+            return await axios.post('http://localhost:3006/activity',payload)
             .then(resp => console.log(resp.data))
         }catch(err){
             console.log(err);
@@ -90,7 +90,7 @@ export const addActivity = (payload) =>{
 export const getActivities = () => {
     return async function (dispatch) {
         try {
-            let json = await axios.get('http://localhost:3005/activity');
+            let json = await axios.get('http://localhost:3006/activity');
             return dispatch({
                 type: GET_ACTIVITIES,
                 payload: json.data
@@ -113,7 +113,7 @@ export const orderByActivity = (payload) =>{
 export const detail= (id) => {
     return async (dispatch) => {
         try {
-            var json = await axios.get(`http://localhost:3005/country/${id}`)
+            var json = await axios.get(`http://localhost:3006/country/${id}`)
             return dispatch({
                 type: DETAIL,
                 payload: json.data

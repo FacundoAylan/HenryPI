@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../css/paginacion.css'
+import './paginacion.css'
 
 export const Paginacion1 = ({pagina, setPagina, maximo}) =>{
 
@@ -69,7 +69,7 @@ export const Paginacion1 = ({pagina, setPagina, maximo}) =>{
               botones.map((value) =>{
                 return(
                   <button
-                  className={pagina === value && 'active'} 
+                  className={pagina === value ? 'active': ''} 
                   onClick={onChange} value={value}>{value}</button>
                 )
               })

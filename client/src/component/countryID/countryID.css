@@ -1,0 +1,33 @@
+.id{
+    display: flex;
+    border: 3px solid #007bff;
+    max-width: 60%;
+    height: 350px;
+    margin-top: 10%;
+    margin-left: 20%;
+    border-radius: 18px;
+    background-color: rgba(20, 183, 223, 0.192);
+
+}
+
+.id img{
+    margin: none;
+    width: 40%;
+    border-radius: 12px;
+
+}
+.info{
+    padding: 4px;
+    width: 100%;
+
+}
+.info h1{
+    width: 100%;
+}
+.info h2{
+    padding: none;
+    margin: none;
+    background-color: black;
+    width: 100%;
+    margin-left: 1px;
+}

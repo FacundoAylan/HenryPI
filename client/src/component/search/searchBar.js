@@ -40,7 +40,7 @@ export const SearchBar = ({setPagina}) =>{
         <button  className="button" onClick={onClickHandler}/>
         
           <button className="activity" >
-            <Link to='/activity'>
+            <Link to={`/activity/Add`}>
                 activity
             </Link>
           </button>

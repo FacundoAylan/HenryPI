@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-export const Activity = ({ activities, countryName }) => {
+export const Activity = ({ activities, countryName, name }) => {
   if (activities && activities.length > 0) {
-    console.log("hola");
     return (
       <div >
         <h3>Actividades de {countryName}</h3>
@@ -17,10 +16,11 @@ export const Activity = ({ activities, countryName }) => {
                   <h5>Dificultad: {a.difficulty}</h5>
                 </tr>
               ))}
+            <Link  to={"/activity/"+countryName}><h3>Agregar Actividad</h3></Link>
       </div>
     );
   } else {
-    return <Link  to="/activity"><h3>Plan activities for this country!</h3></Link>
+    return  <Link  to={"/activity/"+countryName}><h3>Agregar Actividad</h3></Link>
   }
 };
 

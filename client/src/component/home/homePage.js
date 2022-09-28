@@ -1,7 +1,7 @@
 import React, { useEffect,useState} from 'react';
 import Country from '../country/country'
 import { useSelector, useDispatch } from 'react-redux';
-import { Paginacion1 } from '../paginacion1';
+import { Paginacion1 } from '../paginado/paginacion1';
 import './homePage.css'
 import { getCountries, filterCountriesContinent , setCountriesSort, orderByPopulation,getActivities, orderByActivity} from "../../redux/actions/index";
 import { Barra } from '../barra/barra';
@@ -40,7 +40,7 @@ export const HomePage = () => {
                 .map((country) => {
                         return (
                           <div key={country.id}>
-                            <Link to={'/home/' + country.id}>
+                            <Link to={'/country/' + country.id}>
                               <Country
                                 className="card"
                                 name={country.name}
