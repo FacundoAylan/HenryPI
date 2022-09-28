@@ -2,8 +2,13 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import { getCountries, addActivity } from "../redux/actions";
+import { useParams } from "react-router-dom";
+
 
 export const Formulario = () => {
+    
+    const {id} =useParams()
+
     const dispatch = useDispatch();
 
     const countries =useSelector(state => state.allCountries)
@@ -19,6 +24,13 @@ export const Formulario = () => {
     
     
     useEffect(() => {
+        if(id !== "Add"){
+            setState({
+                ...state,
+                countryID: state.countryID.concat(id)
+            })
+            setSelectCountry([...selectCounty, id])
+        }
         dispatch(getCountries())
     }, [dispatch])
 
