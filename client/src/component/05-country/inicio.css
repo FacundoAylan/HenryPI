@@ -9,6 +9,7 @@
     border-radius: 10px;
     margin-left: 1%;
 }
+
 .contenedorImg:hover{
     box-shadow: 0px 0px 30px rgba(236, 10, 10, 0.5);
 }

@@ -13,6 +13,8 @@
     box-sizing: border-box;
     border-radius: 12px;
     grid-column: x1/x2;
+    background-color: rgba(31, 61, 233, 0.774);
+    border: 2px solid #007bff;
 }
 .button{
     position: absolute;
@@ -23,15 +25,28 @@
     height: 30px;
     width: 38px;
     border-radius: 12px;
+    background-color: rgba(31, 61, 233, 0.774);
+    border: 2px solid #007bff;
+    cursor: pointer;
 }
 .activity{
     grid-row: y1;
     border-radius: 12px;
     margin-left: 60%;
+    background-color: rgba(31, 61, 233, 0.774);
+    border: 2px solid #007bff;
+    color: white;
+   
     
+}
+.activity :link{
+    text-decoration: none;
 }
 .reset{
     grid-row: y1;
     border-radius: 12px;
     margin-right: 60%;
+    background-color: rgba(31, 61, 233, 0.774);
+    border: 2px solid #007bff;
+    cursor: pointer;
 }

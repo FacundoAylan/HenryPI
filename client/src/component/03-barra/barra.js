@@ -1,7 +1,8 @@
 import React, { useEffect,useState} from 'react';
 import { useDispatch } from 'react-redux';
-import {SearchBar} from '../search/searchBar'
+import {SearchBar} from '../04-search/searchBar'
 import { getCountries, filterCountriesContinent , setCountriesSort, orderByPopulation,getActivities, orderByActivity} from "../../redux/actions/index";
+import { Link } from 'react-router-dom';
 import './barra.css'
 
 export const Barra = ({ countries, activity, setPagina}) => {
@@ -36,8 +37,9 @@ export const Barra = ({ countries, activity, setPagina}) => {
     }
     return(
         <div className="barra1">
-            <h1 className='titulo'>COUNTRY</h1>
-
+            <Link to='/' className='titulo'>
+                <h1 >COUNTRY</h1>
+            </Link>
             <SearchBar className="search" setPagina={setPagina}/>
             
             <div className='orden'>

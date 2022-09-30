@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
-import { getCountries, addActivity } from "../redux/actions";
+import { getCountries, addActivity } from "../../redux/actions";
 import { useParams } from "react-router-dom";
-
+import './formulario.css'
 
 export const Formulario = () => {
-    
+
     const {id} =useParams()
 
     const dispatch = useDispatch();
 
     const countries =useSelector(state => state.allCountries)
-    const [selectCounty, setSelectCountry] = useState([])
+    const [regreso, setRegreso] = useState(false);
 
     const [state, setState] = useState({
         name:"",
@@ -29,7 +29,7 @@ export const Formulario = () => {
                 ...state,
                 countryID: state.countryID.concat(id)
             })
-            setSelectCountry([...selectCounty, id])
+            setRegreso(true)
         }
         dispatch(getCountries())
     }, [dispatch])
@@ -52,7 +52,6 @@ export const Formulario = () => {
             ...state,
             countryID: state.countryID.concat(e.target.value)
         })
-        setSelectCountry([...selectCounty, e.target.value])
     };
 
     const onChangeDelete = (e) =>{
@@ -62,17 +61,28 @@ export const Formulario = () => {
                return event !== e.target.value
             }),
         })
-        setSelectCountry(selectCounty.filter(event=>{
-            return event!== e.target.value
-        }))
+
     }
     
     return(
-        <div>
-            <Link to='/countries'>Back</Link>
+        <div className="formulario">
+            <div className="botonesRegreso">
+                <a className="regreso" href="javascript:history.back()">
+                    <button>
+                        Volver Atrás    
+                    </button> 
+                </a>
+                <Link to='/countries'>
+                    <button className="regreso1">
+                        Inicio
+                    </button>
+                </Link>
+
+            </div>
+
             <form onSubmit={handlerOnSubmit}>
                 <div>
-                    <label>Name</label>
+                    <label>Name:</label>
                     <input  name="name" value={state.name}  onChange={handleChange}></input>
                 </div>
                 <div>
@@ -80,7 +90,7 @@ export const Formulario = () => {
                     <input name="duration"  value={state.duration} onChange={handleChange} ></input>
                 </div>
                 <div>
-                    <label>Dificultad</label>
+                    <label>Dificultad:</label>
                     <select name="difficulty" onChange={handleChange}>
                         <option value="---">Select difficulty</option>
                         <option value={1}>1</option>
@@ -91,17 +101,17 @@ export const Formulario = () => {
                     </select>
                 </div>
                 <div>
-                    <label>Temporada</label>
+                    <label>Temporada:</label>
                     <select name ="season" onChange={handleChange}>
                         <option value="---">Temporada</option>
-                        <option value="Summer">Verano</option>
-                        <option value="Autumn">Otoño</option>
-                        <option value="Winter">Invierno</option>
-                        <option value="Spring">Primavera</option>
+                        <option value='Verano'>Verano</option>
+                        <option value='Otoño'>Otoño</option>
+                        <option value='Invierno'>Invierno</option>
+                        <option value='Primavera'>Primavera</option>
                     </select>
                 </div>
                 <div>
-                    <label>Paises</label>
+                    <label>Paises:</label>
                     <select onChange={handleSelect} value={state.countryID}>
                         <option>Selecion el pais</option>
                             {
@@ -111,14 +121,14 @@ export const Formulario = () => {
                             }
                     </select>
                 </div>
-                <div>
+                <div className="agregar">
                     <button>Agregar Actividad</button>
                 </div>
 
             </form>
-            <div>
+            <div className=" pais">
                 {
-                selectCounty?.map( pais => (
+                state?.countryID.map( pais => (
                     <button value={pais} onClick={onChangeDelete}>
                         {pais}
                     </button>

@@ -1,10 +1,10 @@
 import React, { useEffect,useState} from 'react';
-import Country from '../country/country'
+import Country from '../05-country/country'
 import { useSelector, useDispatch } from 'react-redux';
-import { Paginacion1 } from '../paginado/paginacion1';
+import { Paginacion1 } from '../06-paginado/paginacion1';
 import './homePage.css'
-import { getCountries, filterCountriesContinent , setCountriesSort, orderByPopulation,getActivities, orderByActivity} from "../../redux/actions/index";
-import { Barra } from '../barra/barra';
+import { getCountries,getActivities} from "../../redux/actions/index";
+import { Barra } from '../03-barra/barra';
 import {Link} from 'react-router-dom';
 
 

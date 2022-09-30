@@ -1,8 +1,8 @@
 import './App.css';
 import { Route } from 'react-router-dom'
-import {Loanding} from './component/loanding/loanding.js'
-import {HomePage} from './component/home/homePage'
-import {Formulario} from './component/formulario'
+import {Loanding} from './component/01-loanding/loanding.js'
+import {HomePage} from './component/02-home/homePage'
+import {Formulario} from './component/formulario/formulario'
 import {CountryID} from './component/countryID/countryID'
 
 

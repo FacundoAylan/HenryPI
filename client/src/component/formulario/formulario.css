@@ -1,0 +1,72 @@
+.formulario{
+    justify-content: center;
+    justify-items: center;
+    height: 300px;
+    margin:0;
+    padding: none;
+    font-size: 25px;
+
+}
+.regreso{
+    position: relative;
+}
+.regreso1{
+    position: absolute;
+    padding: none;
+    margin-left: 10px;
+    margin-top: 9px;
+
+}
+
+.formulario input{
+    margin-left: 1%;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid #007bff;
+    border-radius: 12px;
+}
+.formulario select{
+    margin-left: 1%;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid #007bff;
+    border-radius: 12px;
+}
+.formulario option{
+    background-color: rgba(59, 130, 236, 0.719);
+    border-radius: 12px;
+}
+.agregar button{
+    margin-left: 18%;
+    margin-top: 2%;
+    min-height: 30px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid #007bff;
+}
+.agregar button:hover{
+    background-color: #007bff;
+    border: 1px solid #7cbddb;
+}
+.formulario form{
+    margin-top: 2%;
+    margin-left: 25%;
+}
+.pais{
+    margin-left: 25%;
+    margin-top: 2%;
+
+}
+.pais button{
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid #007bff;
+    border-radius: 12px;
+    height: 30px;
+    margin-right: 5px;
+}
+.pais button:hover{
+    background-color: #007bff;
+    border: 1px solid #7cbddb;
+}
+
+div{
+    margin-top: 1%;
+}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { detail } from "../../redux/actions";
@@ -16,7 +16,12 @@ export const CountryID = () =>{
         dispatch(detail(id))
     },[])
     return(
-        <div>
+        <div className="contenedorId">
+            <a className= "atras" href="javascript:history.back()">
+                <button>
+                    Atras
+                </button> 
+            </a>
             <div className="id">
                     <img src={detailData?.imagen}/>
                     <div className="info">
@@ -28,7 +33,7 @@ export const CountryID = () =>{
                     </div>
             </div>
 
-            <Activity countryName={detailData?.name} activities={detailData?.activities} />
+            <Activity countryName={detailData?.name} activities={detailData?.activities}/>
 
         </div>
     )

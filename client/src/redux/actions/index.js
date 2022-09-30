@@ -34,24 +34,11 @@ export const getCountriesName = (name) =>{
                 payload: json.data
             });
         }catch (err) {
-            console.log(err);
+            alert("No se a encontrado el pais");
         }
     }
 };
-export const searchCountries= (search) => {
-    return async (dispatch) => {
-        try {
-            var json = await axios.get(`http://localhost:3006/countries?name=${search}`)
-            return dispatch({
-                type: 'SEARCH_COUNTRIES',
-                payload: json.data
-            });
-        } catch (error) {
-            alert('El pais no fue encontrado')
-            console.log(error)
-        }
-    }
-}
+
 export const setCountriesSort = (payload) =>{
     return(
         {
@@ -80,7 +67,6 @@ export const addActivity = (payload) =>{
     return async (dispatch) => {
         try{
             return await axios.post('http://localhost:3006/activity',payload)
-            .then(resp => console.log(resp.data))
         }catch(err){
             console.log(err);
         }
@@ -97,7 +83,6 @@ export const getActivities = () => {
             })
         } catch (error) {
             alert('No hay actividades')
-            console.log(error)
         }
     }
 }
@@ -120,7 +105,6 @@ export const detail= (id) => {
             });
         } catch (error) {
             alert('El pais no fue encontrado')
-            console.log(error)
         }
     }
 }

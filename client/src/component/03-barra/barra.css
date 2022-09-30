@@ -1,8 +1,17 @@
 .barra1{
+    margin: 0;
+    background-color: #007bff2a;
     height: 100px;
-    background-color: rgba(31, 61, 233, 0.774);
     display: grid;
     grid-template-columns: [titulo] 20%  [search] 50% [filtro] 30%;
+}
+.titulo{
+    color: white;
+    margin-left: 3%;
+}
+.titulo:link{
+    text-decoration:none;
+    
 }
 .orden{
     display: inline-grid;
@@ -45,4 +54,15 @@
     grid-column: titulo/search;
     height: 100%;
     width: 100%;
+}
+.orden select{
+    margin-top: 3px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid #007bff;
+    border-radius: 12px;
+    height: 30px;
+    cursor: pointer;
+}
+.orden option{
+    background-color: rgba(31, 61, 233, 0.774);
 }
