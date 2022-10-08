@@ -1,5 +1,8 @@
-import React, { useEffect,useState} from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch } from 'react-redux';
+import { FcGlobe } from "react-icons/fc";
+
+
 import {SearchBar} from '../04-search/searchBar'
 import { getCountries, filterCountriesContinent , setCountriesSort, orderByPopulation,getActivities, orderByActivity} from "../../redux/actions/index";
 import { Link } from 'react-router-dom';
@@ -13,17 +16,20 @@ export const Barra = ({ countries, activity, setPagina}) => {
         dispatch(getActivities())
     },[]);
 
-    const handleFilterContinent = (e)=>{
-        setPagina(1);
-        dispatch(filterCountriesContinent(e.target.value));
-    }
     const handlerOrder = (e) =>{
         dispatch(setCountriesSort(e.target.value))
     }
 
+
     const handlerPopulation = (e) =>{
         dispatch(orderByPopulation(e.target.value))
     }
+
+    const handleFilterContinent = (e)=>{
+        setPagina(1);
+        dispatch(filterCountriesContinent(e.target.value));
+    }
+    
     const handlerActivity = (e) =>{
         setPagina(1);
         dispatch(orderByActivity(e.target.value))
@@ -38,12 +44,14 @@ export const Barra = ({ countries, activity, setPagina}) => {
     return(
         <div className="barra1">
             <Link to='/' className='titulo'>
-                <h1 >COUNTRY</h1>
+                <h1 >COUNTRY <FcGlobe className='FcGlobe'/></h1>
+                
             </Link>
+
             <SearchBar className="search" setPagina={setPagina}/>
             
             <div className='orden'>
-                <h2 className='sort'>Filtrar Por:</h2>
+                <h2 className='sort'>Sort by:</h2>
                 
                 <select className="filtro1" onChange={(e) => handlerOrder(e)}>
                     <option value="true">ALL</option>

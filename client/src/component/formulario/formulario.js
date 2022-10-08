@@ -12,7 +12,6 @@ export const Formulario = () => {
     const dispatch = useDispatch();
 
     const countries =useSelector(state => state.allCountries)
-    const [regreso, setRegreso] = useState(false);
 
     const [state, setState] = useState({
         name:"",
@@ -29,7 +28,6 @@ export const Formulario = () => {
                 ...state,
                 countryID: state.countryID.concat(id)
             })
-            setRegreso(true)
         }
         dispatch(getCountries())
     }, [dispatch])

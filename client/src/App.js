@@ -5,7 +5,6 @@ import {HomePage} from './component/02-home/homePage'
 import {Formulario} from './component/formulario/formulario'
 import {CountryID} from './component/countryID/countryID'
 
-
 function App() {
   return (
     <div className="App">

@@ -32,8 +32,6 @@ const newAct= async (req, res) => {
       name: countryID,
     },
   });
-  // console.log(addAct)
-  // console.log(countrymatch)
 
   const resact = await valdidateact.addCountries(countrymatch);
 
@@ -44,7 +42,20 @@ const getActivities = async (req,res) => {
   const get = await Activity.findAll()
   res.send(get)
 }
+
+const deleteActivity =async(req,res) =>{
+   const {name} = req.body;
+   const eliminar = await Activity.destroy({
+      where: {
+        name:name
+    }
+   })
+  res.send(name)
+}
+
+
 module.exports={
   newAct,
-  getActivities
+  getActivities,
+  deleteActivity
 }

@@ -29,6 +29,12 @@ export const rootReducer = (state = initialState, action) =>{
                 allCountries: action.payload,
                 countries: action.payload
             }
+            
+        case GET_ACTIVITIES:
+            return {
+                ...state,
+                activities: action.payload
+        }
 
         case GET_COUNTRIES_NAME:
             return {
@@ -88,11 +94,7 @@ export const rootReducer = (state = initialState, action) =>{
                 ...state,
                 activities: action.payload
             }
-        case GET_ACTIVITIES:
-            return {
-                ...state,
-                activities: action.payload
-        }
+
                 
         case ORDER_BY_ACTIVITY:
             const filter = action.payload !== "Activity" ? state.allCountries.filter((c)=>{ return c.activities.some((a)=> a.name === action.payload)})

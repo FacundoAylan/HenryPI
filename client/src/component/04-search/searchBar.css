@@ -1,5 +1,5 @@
  .ConteinerSearch{
-    margin-top: 3%;
+    margin-top: 2%;
     display: inline-grid;
     grid-template-columns: 45% [x1] 45% [x2];
     grid-template-rows: 40px [y1] 35px [y2];
@@ -8,25 +8,43 @@
 }
 .input{
     position: absolute;
-    height: 30px;
+    height: 35px;
     width: 35%;
     box-sizing: border-box;
     border-radius: 12px;
     grid-column: x1/x2;
-    background-color: rgba(31, 61, 233, 0.774);
-    border: 2px solid #007bff;
+    background-color: #007bff2a;
+    border:2px solid white;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+
 }
+.input:hover{
+    color: black;
+    background-color: #fff;;
+    box-shadow:
+    0 0 5px rgba(0,178,255,1),
+    0 0 10px rgba(0,178,255,1),
+    0 0 20px rgba(0,178,255,1),
+    0 0 40px rgba(38,104,127,1),
+    0 0 80px rgba(38,104,127,1),
+    0 0 90px rgba(38,104,127,1),
+    0 0 100px rgba(38,104,127,1),
+    0 0 140px rgba(38,104,127,1),
+    0 0 180px rgba(38,104,127,1);
+}
+
 .button{
     position: absolute;
-    margin-left:33%;
-    background-image: url("../../img/search.png");
-    background-position: center top;
-    background-size: 80% auto;
+    padding: 1px;
+    margin-left:32%;
+    background-position: center;
+    font-size: 33px;
     height: 30px;
     width: 38px;
-    border-radius: 12px;
-    background-color: rgba(31, 61, 233, 0.774);
-    border: 2px solid #007bff;
+    background-color: transparent;
+    border: 0;
     cursor: pointer;
 }
 .activity{
@@ -39,7 +57,7 @@
    
     
 }
-.activity :link{
+:link{
     text-decoration: none;
 }
 .reset{

@@ -7,6 +7,7 @@ import { Activity } from "../activityDetail/activityDetail";
 import './countryID.css'
 
 export const CountryID = () =>{
+
     const {id} = useParams();
     const dispatch = useDispatch();
     const detailData = useSelector(state => state.detail)
@@ -14,7 +15,8 @@ export const CountryID = () =>{
 
     useEffect(()=>{
         dispatch(detail(id))
-    },[])
+    },[]);
+    
     return(
         <div className="contenedorId">
             <a className= "atras" href="javascript:history.back()">

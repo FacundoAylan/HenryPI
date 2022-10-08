@@ -1,5 +1,5 @@
 import React, { useEffect,useState} from 'react';
-import Country from '../05-country/country'
+import {Country} from '../05-country/country'
 import { useSelector, useDispatch } from 'react-redux';
 import { Paginacion1 } from '../06-paginado/paginacion1';
 import './homePage.css'
@@ -16,18 +16,17 @@ export const HomePage = () => {
     );
     const activity = useSelector((state)=> state.activities)
 
-    const detail = useSelector(store => store.detail);
-
     const [pagina, setPagina] = useState(1);
-    const [porPagina, setPorPagina] = useState(10);
+    const porPagina = 10;
 
     
     const maximo = Math.ceil(countries?.length/porPagina);
 
     const dispatch = useDispatch();
+
     useEffect(() => {
-        dispatch(getCountries())
-        dispatch(getActivities())
+        dispatch(getCountries());
+        dispatch(getActivities());
     },[]);
 
 

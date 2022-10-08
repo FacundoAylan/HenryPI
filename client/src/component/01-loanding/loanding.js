@@ -1,16 +1,8 @@
-import React, { useEffect }  from "react";
-import { useDispatch } from "react-redux";
-import {getCountries} from '../../redux/actions/index';
+import React  from "react";
 import { Link } from "react-router-dom";
 import './loanding.css'
 
 export const Loanding = () =>{
-
-    const dispatch = useDispatch();
-
-    useEffect(()=>{
-        dispatch(getCountries());
-    },[dispatch]);
 
     return(
         <div className='loanding'>
@@ -18,7 +10,7 @@ export const Loanding = () =>{
                 <h5>PROYECTO INDIVIDUAL SOY HENRY</h5>
                 <Link  to="/countries">
                     <button className="inicio">
-                        COMENZAR
+                        INICIO
                     </button>
                 </Link>
 
