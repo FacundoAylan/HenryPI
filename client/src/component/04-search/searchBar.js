@@ -46,11 +46,11 @@ export const SearchBar = ({setPagina}) =>{
         onChange={(e) => inputHandler(e)}
         />
         <button  className="button" >
-          <FcSearch/>
+          <FcSearch />
         </button>
         
         <button className="activity" >
-          <Link to={`/activity/Add`}>
+          <Link to={`/activity/Add`} className='add'>
               activity
           </Link>
         </button>

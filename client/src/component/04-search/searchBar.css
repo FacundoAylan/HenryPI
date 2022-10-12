@@ -53,12 +53,15 @@
     margin-left: 60%;
     background-color: rgba(31, 61, 233, 0.774);
     border: 2px solid #007bff;
-    color: white;
-   
+    width: 75px;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
     
 }
-:link{
+.add{
     text-decoration: none;
+    color: white;
+   
 }
 .reset{
     grid-row: y1;
@@ -66,5 +69,7 @@
     margin-right: 60%;
     background-color: rgba(31, 61, 233, 0.774);
     border: 2px solid #007bff;
+    width: 75px;
+    background-color: rgba(255, 255, 255, 0);
     cursor: pointer;
 }
