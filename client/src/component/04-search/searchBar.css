@@ -41,8 +41,6 @@
     margin-left:32%;
     background-position: center;
     font-size: 33px;
-    height: 30px;
-    width: 38px;
     background-color: transparent;
     border: 0;
     cursor: pointer;
@@ -53,12 +51,13 @@
     margin-left: 60%;
     background-color: rgba(31, 61, 233, 0.774);
     border: 2px solid #007bff;
-    color: white;
-   
-    
+    cursor: pointer;
+    height: 40px;
+    width: 65px;
 }
-:link{
+.linkActivity{
     text-decoration: none;
+    color: white;
 }
 .reset{
     grid-row: y1;
@@ -67,4 +66,6 @@
     background-color: rgba(31, 61, 233, 0.774);
     border: 2px solid #007bff;
     cursor: pointer;
+    height: 40px;
+    width: 65px;
 }

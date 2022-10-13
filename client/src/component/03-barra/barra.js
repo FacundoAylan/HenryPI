@@ -16,21 +16,35 @@ export const Barra = ({ countries, activity, setPagina}) => {
         dispatch(getActivities())
     },[]);
 
+    const controller = (sortBy) =>{
+        let sort = ['ALL', 'Population', 'Continent', 'Activity' ];
+        
+        sort.map( (value) =>{
+            if(value !== sortBy){
+                document.getElementById(value).selectedIndex = 0;
+            }
+        })
+    }
+
     const handlerOrder = (e) =>{
+        controller('ALL')
         dispatch(setCountriesSort(e.target.value))
     }
 
 
     const handlerPopulation = (e) =>{
+        controller('Population')
         dispatch(orderByPopulation(e.target.value))
     }
 
     const handleFilterContinent = (e)=>{
+        controller('Continent')
         setPagina(1);
         dispatch(filterCountriesContinent(e.target.value));
     }
     
     const handlerActivity = (e) =>{
+        controller('Activity')
         setPagina(1);
         dispatch(orderByActivity(e.target.value))
         if (countries?.length === 0){
@@ -53,19 +67,19 @@ export const Barra = ({ countries, activity, setPagina}) => {
             <div className='orden'>
                 <h2 className='sort'>Sort by:</h2>
                 
-                <select className="filtro1" onChange={(e) => handlerOrder(e)}>
+                <select className="filtro1"  id ='ALL' onChange={(e) => handlerOrder(e)}>
                     <option value="true">ALL</option>
                     <option value="true">A-Z </option>
                     <option value="false">Z-A</option>
                 </select>
 
-                <select className="filtro2" onChange={(e) => handlerPopulation(e)}>
+                <select className="filtro2" id = 'Population' onChange={(e) => handlerPopulation(e)}>
                     <option value="true">Population</option>
                     <option value="true">Poblacio↟</option>
                     <option value="false">Poblacio↡</option>
                 </select>
 
-                <select className="filtro3" onChange={(e) => handleFilterContinent(e)}>
+                <select className="filtro3" id = 'Continent' onChange={(e) => handleFilterContinent(e)}>
                     <option value="All">Continent</option>
                     <option value="South America"> South America </option>
                     <option value="North America"> North America </option>
@@ -74,7 +88,7 @@ export const Barra = ({ countries, activity, setPagina}) => {
                     <option value="Asia"> Asia </option>
                     <option value="Oceania"> Oceania </option>
                 </select>
-                <select className="filtro4" onChange={(e) => handlerActivity(e)}>
+                <select className="filtro4" id = 'Activity' onChange={(e) => handlerActivity(e)}>
                     <option>Activity</option>
                     {
                         activity?.map(event=>(

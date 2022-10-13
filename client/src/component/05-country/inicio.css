@@ -7,7 +7,6 @@
     display: flex;
     overflow: hidden;
     border-radius: 10px;
-    margin-left: 1%;
 }
 
 .contenedorImg:hover{
@@ -18,14 +17,18 @@
     height: 100%;
 }
 .capa{
+    padding: 0;
+    margin: 0;
     position: absolute;
     width: 100%;
     height: 100%;
     background: rgba(7, 53, 83, 0.7);
     opacity: 0;
     visibility: hidden;
+    display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     font-size: 60%;
 }
 

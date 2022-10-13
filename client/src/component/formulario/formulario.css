@@ -3,9 +3,8 @@
     justify-items: center;
     height: 300px;
     margin:0;
-    padding: none;
+    padding: 0;
     font-size: 25px;
-
 }
 .regreso{
     position: relative;

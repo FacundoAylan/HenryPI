@@ -50,7 +50,7 @@ export const SearchBar = ({setPagina}) =>{
         </button>
         
         <button className="activity" >
-          <Link to={`/activity/Add`}>
+          <Link to={`/activity/Add`} className = 'linkActivity'>
               activity
           </Link>
         </button>

@@ -13,6 +13,11 @@ export const Formulario = () => {
 
     const countries =useSelector(state => state.allCountries)
 
+    const expresiones = {
+        name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+        difficulty: /^\d{1,3}$/ // 7 a 14 numeros.
+    }
+
     const [state, setState] = useState({
         name:"",
         difficulty:"",
@@ -33,12 +38,23 @@ export const Formulario = () => {
     }, [dispatch])
 
     
-    const handlerOnSubmit = () =>{
-        if(state.name !=="" && state.difficulty!=="" && state.duration!=="" && state.season!=="" && state.countryID.length!==0){
-            dispatch(addActivity(state))
+    const handlerOnSubmit = (event) =>{
+        event.preventDefault()
+        console.log('Se envio el formulario')
+        dispatch(addActivity(state))
+    }
+
+    const verificar = () =>{
+        if (state.name !== ''){
+            document.getElementById('ocultar').style.display = 'none';
+        }else{
+            document.getElementById('ocultar').style.display = 'block';
         }
     }
+
+
     const handleChange = (e) =>{
+        verificar()
         setState({
             ...state,
             [e.target.name]: e.target.value
@@ -61,7 +77,7 @@ export const Formulario = () => {
         })
 
     }
-    
+
     return(
         <div className="formulario">
             <div className="botonesRegreso">
@@ -81,11 +97,12 @@ export const Formulario = () => {
             <form onSubmit={handlerOnSubmit}>
                 <div>
                     <label>Name:</label>
-                    <input  name="name" value={state.name}  onChange={handleChange}></input>
+                    <input  name="name" value={state.name}  onChange={handleChange} required></input>
+                    <h5 id = 'ocultar'>La actividad debe tener al menos </h5>
                 </div>
                 <div>
-                    <label>Duracion (minutes):</label>
-                    <input name="duration"  value={state.duration} onChange={handleChange} ></input>
+                    <label >Duracion (minutes):</label>
+                    <input name="duration"  value={state.duration} onChange={handleChange} required></input>
                 </div>
                 <div>
                     <label>Dificultad:</label>
