@@ -54,7 +54,7 @@ export const Paginacion1 = ({pagina, setPagina, maximo}) =>{
     
     return(
         <div className="paginacion">
-            <button onClick={previusPage}>Ant</button>
+            <button onClick={previusPage}>Prev</button>
             {
               page.slice(previusPageLimit, nextPageLimit).map((value) =>{
                 return(
@@ -64,7 +64,7 @@ export const Paginacion1 = ({pagina, setPagina, maximo}) =>{
                 )
               })
             }
-            <button onClick={nextPage}>Seg</button>
+            <button onClick={nextPage}>Next</button>
         </div>
     )
 }

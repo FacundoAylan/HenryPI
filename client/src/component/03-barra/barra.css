@@ -55,6 +55,7 @@
     justify-items: center;
     justify-content: start;
     column-gap: 5px;
+    
 }
 
 .sort{
@@ -63,27 +64,32 @@
     height: 30px;
     font-size: 20px;
     box-sizing: border-box;
+    color: white;
 }
 
 .filtro1{
     grid-column:x0;
     grid-row: y1;
     width: 97%;
+    color: white;
 }
 .filtro2{
     grid-column:x1;
     grid-row: y1;
     width: 97%;
+    color: white;
 }
 .filtro3{
     grid-column:x2;
     grid-row: y1;
     width: 97%;
+    color: white;
 }
 .filtro4{
     grid-column:x3;
     grid-row: y1;
     width: 97%;
+    color: white;
 }
 .search{
     grid-column: titulo/search;

@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { getCountries, addActivity } from "../../redux/actions";
 import { useParams } from "react-router-dom";
 import './formulario.css'
+import { Input } from "./input";
 
 export const Formulario = () => {
 
@@ -11,12 +12,7 @@ export const Formulario = () => {
 
     const dispatch = useDispatch();
 
-    const countries =useSelector(state => state.allCountries)
-
-    const expresiones = {
-        name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-        difficulty: /^\d{1,3}$/ // 7 a 14 numeros.
-    }
+    const countries =useSelector(state => state.allCountries);
 
     const [state, setState] = useState({
         name:"",
@@ -25,8 +21,16 @@ export const Formulario = () => {
         season: "",
         countryID: []
     })
+    const [name, setName] = useState({campo: '', valido: null});
+    const [duration, setDuration] = useState({campo: '', valido: null});
+    const [countryID, setCountryID] = useState({campo: [], valido: null});
+
+    const expresiones = {
+		name: /^[a-zA-ZÀ-ÿ\s]{5,40}$/, // Letras y espacios, pueden llevar acentos.
+		duration: /^\d{1,3}$/ // 1 a 3 numeros.
+	}
     
-    
+
     useEffect(() => {
         if(id !== "Add"){
             setState({
@@ -94,18 +98,37 @@ export const Formulario = () => {
 
             </div>
 
-            <form onSubmit={handlerOnSubmit}>
-                <div>
+            <form onSubmit={handlerOnSubmit} className='form'>
+                <div className="name">
                     <label>Name:</label>
-                    <input  name="name" value={state.name}  onChange={handleChange} required></input>
-                    <h5 id = 'ocultar'>La actividad debe tener al menos </h5>
+                    <Input
+                        status= {name}
+                        statusChange = {setName}
+                        type="text"
+                        label="name"
+                        placeholder="futbol"
+                        name="name" 
+                        errorMessage="El nombre solo puede contener letras y espacios."
+                        expression={expresiones.name}
+                    />
+                    
+            
                 </div>
-                <div>
-                    <label >Duracion (minutes):</label>
-                    <input name="duration"  value={state.duration} onChange={handleChange} required></input>
+                <div className="durati">
+                    <label >Duration (minutes):</label>
+                    <Input
+                        status= {duration}
+                        statusChange = {setDuration}
+                        type="text"
+                        label="Duration"
+                        placeholder="120min"
+                        name="Duration" 
+                        errorMessage="La duracion solo puede contener numeros"
+                        expression={expresiones.duration}
+                    />
                 </div>
-                <div>
-                    <label>Dificultad:</label>
+                <div className="difficulty">
+                    <label>Difficulty:</label>
                     <select name="difficulty" onChange={handleChange}>
                         <option value="---">Select difficulty</option>
                         <option value={1}>1</option>
@@ -115,20 +138,20 @@ export const Formulario = () => {
                         <option value={5}>5</option>
                     </select>
                 </div>
-                <div>
-                    <label>Temporada:</label>
+                <div className="season">
+                    <label>Season:</label>
                     <select name ="season" onChange={handleChange}>
-                        <option value="---">Temporada</option>
+                        <option value="---">Season</option>
                         <option value='Verano'>Verano</option>
                         <option value='Otoño'>Otoño</option>
                         <option value='Invierno'>Invierno</option>
                         <option value='Primavera'>Primavera</option>
                     </select>
                 </div>
-                <div>
-                    <label>Paises:</label>
+                <div className="select">
+                    <label>Country:</label>
                     <select onChange={handleSelect} value={state.countryID}>
-                        <option>Selecion el pais</option>
+                        <option>Select country:</option>
                             {
                                 countries?.map(pais=>(
                                     <option value={pais.name}>{pais.name}</option>
@@ -137,7 +160,7 @@ export const Formulario = () => {
                     </select>
                 </div>
                 <div className="agregar">
-                    <button>Agregar Actividad</button>
+                    <button>Add activity</button>
                 </div>
 
             </form>

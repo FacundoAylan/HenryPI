@@ -7,6 +7,7 @@
     font-size: 20px;
 }
 .paginacion button{
+    color: white;
     margin: 3px;
     border-radius: 20px;
     min-height: 30px;
