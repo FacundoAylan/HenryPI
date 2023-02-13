@@ -38,26 +38,21 @@ export const SearchBar = ({setPagina}) =>{
 
 
   return (
-    <div className="ConteinerSearch">
-        <input
-        placeholder="Search by name"
-        className="input"
-        value={search}
-        onChange={(e) => inputHandler(e)}
-        />
-        <button  className="button" >
-          <FcSearch/>
-        </button>
-        
-        <button className="activity" >
-          <Link to={`/activity/Add`} className = 'linkActivity'>
+    <div className="container-fluid">
+      <div className="row">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search}
+          onChange={(e) => inputHandler(e)}/>
+      </div>
+      <div className="row text-center">
+        <div className="col">
+          <Link to={`/activity/Add`} class="btn btn-outline-info ">
               activity
           </Link>
-        </button>
-
-        <button className="reset" onClick={() => reset()}>
-          Reset
-        </button>
+          <button type="button" class="btn btn-outline-info" onClick={() => reset()}>
+            Reset
+          </button>
+        </div>
+      </div>
       
   </div>
   )

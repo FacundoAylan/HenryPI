@@ -12,11 +12,16 @@
     width: 300px;
     height: 30px;
     border-radius: 12px;
+    font-size: 15px;
+    text-align: center;
+    background-color: #007bff2a;
+    border:2px solid white;
+    color: white;
 }
 .exit h5{
     padding: 3px;
     font-size: 15px;
-    color: red;
+    color: rgba(223, 10, 10, 0.829);
     margin-top: 11%;
 }
 

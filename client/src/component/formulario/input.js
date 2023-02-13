@@ -7,7 +7,7 @@ import './input.css'
 
 export const Input = ({status,statusChange,type,label,placeholder,name,errorMessage,expression}) =>{
 
-    const [error, setError] = useState(false);
+    const [error, setError] = useState(null);
 
     const onChange = (e) =>{
         statusChange({...status , campo: e.target.value})
@@ -17,8 +17,8 @@ export const Input = ({status,statusChange,type,label,placeholder,name,errorMess
             statusChange({...status, valido: true});
             setError(true);
         } else {
-            statusChange({...status, valido: false});
-            setError(false)
+            statusChange({...status, valido: null});
+            setError(null)
         }
     };
 
@@ -34,7 +34,7 @@ export const Input = ({status,statusChange,type,label,placeholder,name,errorMess
             
             />
             { status.valido === true ? <VscPass className="true"/>: <TiDeleteOutline className="false"/>}
-            <h5 className={error === false ? 'active': 'disabled'}>{errorMessage}</h5>
+            <h5 className={error === null ? 'active': 'disabled'}>{errorMessage}</h5>
         </div>
     )
 };

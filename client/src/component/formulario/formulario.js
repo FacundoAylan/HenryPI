@@ -15,69 +15,67 @@ export const Formulario = () => {
     const countries =useSelector(state => state.allCountries);
 
     const [state, setState] = useState({
-        name:"",
-        difficulty:"",
-        duration: "",
-        season: "",
-        countryID: []
+        difficulty: null,
+        season: null,
     })
     const [name, setName] = useState({campo: '', valido: null});
     const [duration, setDuration] = useState({campo: '', valido: null});
     const [countryID, setCountryID] = useState({campo: [], valido: null});
 
     const expresiones = {
-		name: /^[a-zA-ZÀ-ÿ\s]{5,40}$/, // Letras y espacios, pueden llevar acentos.
+		name: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
 		duration: /^\d{1,3}$/ // 1 a 3 numeros.
 	}
-    
-
+    const button = (state.difficulty !== 'null'
+                    && duration.valido!== null 
+                    && state.season !== 'null' 
+                    && name.valido !== null 
+                    && countryID.valido !== null) ? 'buttonActive' : 'buttonDisabled'
     useEffect(() => {
         if(id !== "Add"){
-            setState({
-                ...state,
-                countryID: state.countryID.concat(id)
+            setCountryID({
+                ...countryID,
+                campo: countryID.campo.concat(id)
             })
         }
+
         dispatch(getCountries())
-    }, [dispatch])
+    }, [dispatch]);
 
     
     const handlerOnSubmit = (event) =>{
         event.preventDefault()
-        console.log('Se envio el formulario')
         dispatch(addActivity(state))
-    }
-
-    const verificar = () =>{
-        if (state.name !== ''){
-            document.getElementById('ocultar').style.display = 'none';
-        }else{
-            document.getElementById('ocultar').style.display = 'block';
-        }
-    }
-
+    };
 
     const handleChange = (e) =>{
-        verificar()
-        setState({
-            ...state,
-            [e.target.name]: e.target.value
-        })
-    }
+            setState({
+                ...state,
+                [e.target.name]: e.target.value
+            })
+    };
+    console.log(state)
     const handleSelect = (e) =>{
-        if (!state.countryID.includes(e.target.value))
-        setState({
-            ...state,
-            countryID: state.countryID.concat(e.target.value)
-        })
+        if (!countryID.campo.includes(e.target.value)){
+            setCountryID({
+                ...countryID,
+                campo: countryID.campo.concat(e.target.value),
+                valido: true
+            })
+        }
+        document.getElementById('country').selectedIndex = 0;
     };
 
     const onChangeDelete = (e) =>{
-        setState({
-            ...state,
-            countryID: state.countryID.filter(event =>{
-               return event !== e.target.value
-            }),
+        let value = countryID.campo.filter(event =>{
+            return event !== e.target.value
+        })
+        if (value.length === 0){
+            countryID.valido = null;
+        }
+        setCountryID({
+            ...countryID,
+            campo: value,
         })
 
     }
@@ -85,88 +83,89 @@ export const Formulario = () => {
     return(
         <div className="formulario">
             <div className="botonesRegreso">
-                <a className="regreso" href="javascript:history.back()">
-                    <button>
-                        Volver Atrás    
-                    </button> 
+                <a href="javascript:history.back()" className="regreso">
+                    <p>
+                        Black  
+                    </p>
                 </a>
-                <Link to='/countries'>
-                    <button className="regreso1">
-                        Inicio
-                    </button>
+                <Link to='/countries' className="home">
+                    <p>
+                        Home
+                    </p>
                 </Link>
 
             </div>
+            <div className="position">
+                <form onSubmit={handlerOnSubmit} className='form'>
+                    <div className="name">
+                        <label>Name:</label>
+                        <Input
+                            status= {name}
+                            statusChange = {setName}
+                            type="text"
+                            label="name"
+                            placeholder="futbol"
+                            name="name" 
+                            errorMessage="El nombre solo puede contener letras y espacios."
+                            expression={expresiones.name}
+                        />
+                        
+                
+                    </div>
+                    <div className="durati">
+                        <label >Duration (minutes):</label>
+                        <Input
+                            status= {duration}
+                            statusChange = {setDuration}
+                            type="text"
+                            label="Duration"
+                            placeholder="120min"
+                            name="Duration" 
+                            errorMessage="La duracion solo puede contener numeros"
+                            expression={expresiones.duration}
+                        />
+                    </div>
+                    <div className="difficulty">
+                        <label>Difficulty:</label>
+                        <select name="difficulty" onChange={handleChange}>
+                            <option value="null">Select difficulty</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                        </select>
+                    </div>
+                    <div className="season">
+                        <label>Season:</label>
+                        <select name ="season" onChange={handleChange}>
+                            <option value="null">Season</option>
+                            <option value='Verano'>Verano</option>
+                            <option value='Otoño'>Otoño</option>
+                            <option value='Invierno'>Invierno</option>
+                            <option value='Primavera'>Primavera</option>
+                        </select>
+                    </div>
+                    <div className="select">
+                        <label>Country:</label>
+                        <select onChange={handleSelect} value={state.countryID} id='country'>
+                            <option>Select country:</option>
+                                {
+                                    countries?.map(pais=>(
+                                        <option value={pais.name}>{pais.name}</option>
+                                    ))
+                                }
+                        </select>
+                    </div>
+                    <div className={button}>
+                        <button>Add activity</button>
+                    </div>
 
-            <form onSubmit={handlerOnSubmit} className='form'>
-                <div className="name">
-                    <label>Name:</label>
-                    <Input
-                        status= {name}
-                        statusChange = {setName}
-                        type="text"
-                        label="name"
-                        placeholder="futbol"
-                        name="name" 
-                        errorMessage="El nombre solo puede contener letras y espacios."
-                        expression={expresiones.name}
-                    />
-                    
-            
-                </div>
-                <div className="durati">
-                    <label >Duration (minutes):</label>
-                    <Input
-                        status= {duration}
-                        statusChange = {setDuration}
-                        type="text"
-                        label="Duration"
-                        placeholder="120min"
-                        name="Duration" 
-                        errorMessage="La duracion solo puede contener numeros"
-                        expression={expresiones.duration}
-                    />
-                </div>
-                <div className="difficulty">
-                    <label>Difficulty:</label>
-                    <select name="difficulty" onChange={handleChange}>
-                        <option value="---">Select difficulty</option>
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                    </select>
-                </div>
-                <div className="season">
-                    <label>Season:</label>
-                    <select name ="season" onChange={handleChange}>
-                        <option value="---">Season</option>
-                        <option value='Verano'>Verano</option>
-                        <option value='Otoño'>Otoño</option>
-                        <option value='Invierno'>Invierno</option>
-                        <option value='Primavera'>Primavera</option>
-                    </select>
-                </div>
-                <div className="select">
-                    <label>Country:</label>
-                    <select onChange={handleSelect} value={state.countryID}>
-                        <option>Select country:</option>
-                            {
-                                countries?.map(pais=>(
-                                    <option value={pais.name}>{pais.name}</option>
-                                ))
-                            }
-                    </select>
-                </div>
-                <div className="agregar">
-                    <button>Add activity</button>
-                </div>
-
-            </form>
+                </form>
+            </div>
             <div className=" pais">
                 {
-                state?.countryID.map( pais => (
+                countryID.campo.map( pais => (
                     <button value={pais} onClick={onChangeDelete}>
                         {pais}
                     </button>

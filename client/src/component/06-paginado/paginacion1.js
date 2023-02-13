@@ -53,18 +53,28 @@ export const Paginacion1 = ({pagina, setPagina, maximo}) =>{
     };
     
     return(
-        <div className="paginacion">
-            <button onClick={previusPage}>Prev</button>
-            {
+      <nav aria-label="Page navigation example">
+        <ul class="pagination ">
+          <li class="page-item">
+            <button class="page-link"  aria-label="Previous" onClick={previusPage}>&laquo;</button>
+          </li>
+          {
               page.slice(previusPageLimit, nextPageLimit).map((value) =>{
                 return(
-                  <button
-                  className={pagina === value ? 'active': ''} 
-                  onClick={onChange} value={value}>{value}</button>
-                )
+                  <li class="page-item">
+                    <button
+                    class="page-link"
+                    onClick={onChange} value={value}>{value}</button>
+                  </li>
+                  )
               })
             }
-            <button onClick={nextPage}>Next</button>
-        </div>
+
+          <li class="page-item">
+            <button class="page-link" aria-label="Next"onClick={nextPage}>&raquo;</button>
+          </li>
+        </ul>
+      </nav>
+
     )
 }

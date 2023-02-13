@@ -1,26 +1,67 @@
+.formulario{
+    position: relative;
+
+}
+.regreso{
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    width: 70px;
+    height: 35px;
+    margin-top: 5px;
+    margin-left: 3px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+.regreso p{
+    margin-top: 5px;
+}
+.home{
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    margin-left: 6%;
+    margin-top: 5px;
+    width: 70px;
+    height: 35px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+.home p{
+    margin-top: 5px;
+}
+.position{
+    padding-top: 100px;
+}
 .form{
     color: white;
     display: grid;
     grid-template-columns: 500px [x1] 500px [x2];
     grid-template-rows: 80px [y1] 80px [y2] 80px [y3] 80px [y4];
-    grid-gap: 20px;
+    grid-gap: 10px;
     margin-left: 10%;
 
 }
-::placeholder{
-    color: gray;
-}
+
 .form select{
     width: 300px;
     height: 35px;
     border-radius: 12px;
+    font-size: 15px;
+    text-align: center;
 }
+
 .name{
     display: flex;
     justify-content: center;
     justify-items: center;
     flex-direction: column;
     margin-left: 25%;
+    
 }
 .name label{
     padding: 3px;
@@ -33,6 +74,7 @@
     justify-items: center;
     flex-direction: column;
     margin-left: 10%;
+    
 }
 .durati label{
     padding: 4px;
@@ -72,9 +114,22 @@
     padding: 3px;
     font-size: 25px;
 }
-.agregar{
+.buttonActive{
     grid-row: y3;
     margin-left: 95%;
     width: 80px;
     height: 50px;
+    opacity: 1;
+}
+.buttonDisabled{
+    grid-row: y3;
+    margin-left: 95%;
+    width: 80px;
+    height: 50px;
+    opacity: 0;
+}
+select{
+    background-color: #007bff2a;
+    border:2px solid white;
+    color: white;
 }
