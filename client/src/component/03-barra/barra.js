@@ -21,7 +21,6 @@ export const Barra = ({ countries, activity, setPagina }) => {
     dispatch(getActivities());
   }, []);
 
-
   const handlerOrder = (e) => {
     dispatch(setCountriesSort(e.target.value));
   };
@@ -117,6 +116,7 @@ export const Barra = ({ countries, activity, setPagina }) => {
               <form class="d-flex mt-3" role="search">
                 <SearchBar className="search" setPagina={setPagina} />
               </form>
+
             </div>
           </div>
         </div>

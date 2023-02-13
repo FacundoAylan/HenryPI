@@ -9,6 +9,10 @@ export const Paginacion1 = ({pagina, setPagina, maximo}) =>{
     const [previusPageLimit, setPreviusPageLimit] = useState(0);
     const [nextPageLimit, setNextPage] = useState(5);
 
+    //verificar si llego al final
+    const [nextPageLimit, setPageLimit] = useState(0);
+    const [previusPageLimit, setPreviusPageLimit] = useState(5);
+
     for(let i=1;i<=maximo;i++){
       if(init <= maximo){
         init += 5;
@@ -16,6 +20,7 @@ export const Paginacion1 = ({pagina, setPagina, maximo}) =>{
       }
       page.push(i)
     }
+
 
     const nextPage = () =>{
       setPagina(pagina + 1);
@@ -46,12 +51,12 @@ export const Paginacion1 = ({pagina, setPagina, maximo}) =>{
       }else{
         setPagina(pagina-1)
       }
+
     };
     
     const onChange = (e) => {
       setPagina (Number(e.target.value));
     };
-    
     return(
       <nav aria-label="Page navigation example">
         <ul class="pagination ">

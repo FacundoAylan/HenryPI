@@ -46,6 +46,7 @@ export const SearchBar = ({setPagina}) =>{
       <div className="row text-center">
         <div className="col">
           <Link to={`/activity/Add`} class="btn btn-outline-info ">
+
               activity
           </Link>
           <button type="button" class="btn btn-outline-info" onClick={() => reset()}>
