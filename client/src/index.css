@@ -14,10 +14,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url('../src/img/country.jpg');
 }
-#root{
-  padding:0;
-  margin: 0;
-}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -1,70 +1,85 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './paginacion.css'
 
 export const Paginacion1 = ({pagina, setPagina, maximo}) =>{
-    var limit = 1;
-    const pageLimit = [0];
+    let init = 0;
     const page = [];
+    const pageLimit = [0]
+
+    const [previusPageLimit, setPreviusPageLimit] = useState(0);
+    const [nextPageLimit, setNextPage] = useState(5);
 
     //verificar si llego al final
     const [nextPageLimit, setPageLimit] = useState(0);
     const [previusPageLimit, setPreviusPageLimit] = useState(5);
 
     for(let i=1;i<=maximo;i++){
-      if(limit + 5 <maximo){
-        limit += 5;
-        pageLimit.push(limit)
+      if(init <= maximo){
+        init += 5;
+        pageLimit.push(init)
       }
       page.push(i)
     }
 
 
     const nextPage = () =>{
+      setPagina(pagina + 1);
+
       if(pagina >= maximo){
         setPagina(1);
-        setPageLimit(0);
-        setPreviusPageLimit(5);
+        setPreviusPageLimit(0);
+        setNextPage(5);
       }
-      else if (pageLimit.includes(pagina+1)){
-        setPageLimit(nextPageLimit + 5 );
-        setPreviusPageLimit(previusPageLimit +5)
-        setPagina(pagina+1)
+      else if(pageLimit.includes(pagina)){
+        setPreviusPageLimit(previusPageLimit + 5);
+        setNextPage(nextPageLimit + 5);
+      }
 
-      }else{
-        setPagina(pagina+1);
-    }
 
     };
     const previusPage = () =>{
-      setPagina(pagina-1);
-        if(pagina <= 1){
-            setPagina(maximo);
-            setPageLimit(maximo-5);
-            setPreviusPageLimit(maximo);
-        }
-        else if (pageLimit.includes(pagina)){
-          setPageLimit(nextPageLimit - 5 );
-          setPreviusPageLimit(previusPageLimit -5)
-          setPagina(pagina-1)
-        }
+      
+      if(pagina <= 1){
+        setPagina(maximo);
+        setPreviusPageLimit(maximo - 5);
+        setNextPage(maximo);
+      }
+      else if( pageLimit.includes(pagina -1)){
+        setPreviusPageLimit(previusPageLimit - 5);
+        setNextPage(nextPageLimit - 5);
+        setPagina(pagina-1);
+      }else{
+        setPagina(pagina-1)
+      }
+
     };
     
     const onChange = (e) => {
       setPagina (Number(e.target.value));
     };
     return(
-        <div className="paginacion">
-            <button onClick={previusPage}>Ant</button>
-            {
-              page.slice(nextPageLimit,previusPageLimit).map((value) =>{
+      <nav aria-label="Page navigation example">
+        <ul class="pagination ">
+          <li class="page-item">
+            <button class="page-link"  aria-label="Previous" onClick={previusPage}>&laquo;</button>
+          </li>
+          {
+              page.slice(previusPageLimit, nextPageLimit).map((value) =>{
                 return(
-                  <button
-                  className={pagina === value ? 'active': ''} 
-                  onClick={onChange} value={value}>{value}</button>
-                )
+                  <li class="page-item">
+                    <button
+                    class="page-link"
+                    onClick={onChange} value={value}>{value}</button>
+                  </li>
+                  )
               })
             }
-            <button onClick={nextPage}>Seg</button>
-        </div>
+
+          <li class="page-item">
+            <button class="page-link" aria-label="Next"onClick={nextPage}>&raquo;</button>
+          </li>
+        </ul>
+      </nav>
+
     )
 }

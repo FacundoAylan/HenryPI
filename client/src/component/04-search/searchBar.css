@@ -1,23 +1,7 @@
- .ConteinerSearch{
-    margin-top: 2%;
-    display: inline-grid;
-    grid-template-columns: 45% [x1] 45% [x2];
-    grid-template-rows: 40px [y1] 35px [y2];
-    justify-items: center;
-    justify-content: center;
+.btn {
+    margin-top: 10px;
+    margin-left: 7px;
 }
-.input{
-    position: absolute;
-    height: 35px;
-    width: 35%;
-    box-sizing: border-box;
-    border-radius: 12px;
-    grid-column: x1/x2;
-    background-color: #007bff2a;
-    border:2px solid white;
-    color: white;
-    font-size: 20px;
-    text-align: center;
 
 }
 .input:hover{
@@ -73,3 +57,4 @@
     background-color: rgba(255, 255, 255, 0);
     cursor: pointer;
 }
+

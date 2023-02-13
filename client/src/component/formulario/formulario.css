@@ -1,72 +1,135 @@
 .formulario{
-    justify-content: center;
-    justify-items: center;
-    height: 300px;
-    margin:0;
-    padding: none;
-    font-size: 25px;
+    position: relative;
 
 }
 .regreso{
-    position: relative;
-}
-.regreso1{
     position: absolute;
-    padding: none;
-    margin-left: 10px;
-    margin-top: 9px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    width: 70px;
+    height: 35px;
+    margin-top: 5px;
+    margin-left: 3px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+.regreso p{
+    margin-top: 5px;
+}
+.home{
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    margin-left: 6%;
+    margin-top: 5px;
+    width: 70px;
+    height: 35px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+.home p{
+    margin-top: 5px;
+}
+.position{
+    padding-top: 100px;
+}
+.form{
+    color: white;
+    display: grid;
+    grid-template-columns: 500px [x1] 500px [x2];
+    grid-template-rows: 80px [y1] 80px [y2] 80px [y3] 80px [y4];
+    grid-gap: 10px;
+    margin-left: 10%;
 
 }
 
-.formulario input{
-    margin-left: 1%;
-    background-color: rgba(255, 255, 255, 0);
-    border: 2px solid #007bff;
+.form select{
+    width: 300px;
+    height: 35px;
     border-radius: 12px;
+    font-size: 15px;
+    text-align: center;
 }
-.formulario select{
-    margin-left: 1%;
-    background-color: rgba(255, 255, 255, 0);
-    border: 2px solid #007bff;
-    border-radius: 12px;
+
+.name{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    margin-left: 25%;
+    
 }
-.formulario option{
-    background-color: rgba(59, 130, 236, 0.719);
-    border-radius: 12px;
+.name label{
+    padding: 3px;
+    font-size: 25px;
+    margin-left: 27%;
 }
-.agregar button{
-    margin-left: 18%;
-    margin-top: 2%;
-    min-height: 30px;
-    border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0);
-    border: 2px solid #007bff;
+.durati{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    margin-left: 10%;
+    
 }
-.agregar button:hover{
-    background-color: #007bff;
-    border: 1px solid #7cbddb;
+.durati label{
+    padding: 4px;
+    font-size: 25px;
+    margin-left: 10%;
 }
-.formulario form{
-    margin-top: 2%;
+.difficulty{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
     margin-left: 25%;
 }
-.pais{
-    margin-left: 25%;
-    margin-top: 2%;
-
+.difficulty label{
+    padding: 3px;
+    font-size: 25px;
+    margin-left: 22%;
 }
-.pais button{
-    background-color: rgba(255, 255, 255, 0);
-    border: 2px solid #007bff;
-    border-radius: 12px;
-    height: 30px;
-    margin-right: 5px;
+.season{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    margin-left: 10%;
 }
-.pais button:hover{
-    background-color: #007bff;
-    border: 1px solid #7cbddb;
+.season label{
+    padding: 3px;
+    font-size: 25px;
+    margin-left: 22%;
 }
-
-div{
-    margin-top: 1%;
+.select{
+    grid-row: y2;
+    margin-left: 73%;
+}
+.select label{
+    margin-left: 70%;
+    padding: 3px;
+    font-size: 25px;
+}
+.buttonActive{
+    grid-row: y3;
+    margin-left: 95%;
+    width: 80px;
+    height: 50px;
+    opacity: 1;
+}
+.buttonDisabled{
+    grid-row: y3;
+    margin-left: 95%;
+    width: 80px;
+    height: 50px;
+    opacity: 0;
+}
+select{
+    background-color: #007bff2a;
+    border:2px solid white;
+    color: white;
 }

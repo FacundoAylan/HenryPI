@@ -1,3 +1,6 @@
+.card{
+    width:100%;
+
 .contenedorImg {
     width: 80%;
     height: 80%;
@@ -14,8 +17,9 @@
 }
 .img{
     width: 100%;
-    height: 100%;
-}
+    height: 43%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 .capa{
     padding: 0;
     margin: 0;
@@ -32,12 +36,8 @@
     flex-direction: column; 
 }
 
-.contenedorImg:hover > img{
-    transform: scale(1.3);
-}
-.contenedorImg:hover > .capa {
-    opacity: 1;
-    visibility: visible;
+.buttondetail {
+    top: 300px;
 }
 
 
